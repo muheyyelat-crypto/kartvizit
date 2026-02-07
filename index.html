@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYSİMA ELEKTRİK - Dijital Kartvizit</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle, #2c3e50 0%, #000000 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .digital-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f1c40f 0%, #e67e22 100%);
+            height: 110px;
+            position: relative;
+        }
+
+        /* BASKI DEVRE LOGO ALANI */
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            background: #0f172a;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            position: absolute;
+            bottom: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .profile-img i {
+            font-size: 48px;
+            color: #f1c40f;
+            text-shadow: 0 0 10px rgba(241,196,15,0.6);
+        }
+
+        .content {
+            padding: 70px 25px 30px;
+        }
+
+        h2 {
+            color: #1a1a1a;
+            font-size: 22px;
+            margin-bottom: 5px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: #e67e22;
+            font-size: 13px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 14px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 700;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .link-item i {
+            margin-right: 15px;
+            font-size: 20px;
+            color: #e67e22;
+            width: 25px;
+        }
+
+        .link-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #e67e22;
+        }
+
+        .save-btn {
+            background: #e67e22;
+            color: #fff;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(230,126,34,0.3);
+        }
+
+        .save-btn i { color: #fff; }
+
+        .address-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #fdf2e9;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #444;
+            text-align: left;
+            line-height: 1.6;
+            border-left: 4px solid #e67e22;
+        }
+
+        .footer-text {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="digital-card">
+
+    <div class="header">
+        <div class="profile-img">
+            <!-- BASKI DEVRE LOGOSU -->
+            <i class="fas fa-microchip"></i>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>AYSİMA ELEKTRİK OTOMASYON</h2>
+        <p class="subtitle">MUHAMMET GÜL</p>
+
+        <div class="links">
+            <a href="#" class="link-item save-btn" onclick="downloadVCard()">
+                <i class="fas fa-user-plus"></i> KİŞİYİ REHBERE KAYDET
+            </a>
+
+            <a href="tel:+905386448601" class="link-item">
+                <i class="fas fa-phone-alt"></i> Telefonu Ara
+            </a>
+
+            <a href="https://wa.me/+905386448601" class="link-item">
+                <i class="fab fa-whatsapp"></i> WhatsApp Mesaj
+            </a>
+
+            <a href="mailto:aysima.elektrik@gmail.com" class="link-item">
+                <i class="fas fa-envelope"></i> E-posta Gönder
+            </a>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Şehit+Kurmay+Yarbay+İlker+Çelikcan+Cad+No:26C+Çalı+Nilüfer+Bursa" target="_blank" class="link-item">
+                <i class="fas fa-map-marker-alt"></i> Yol Tarifi Al
+            </a>
+        </div>
+
+        <div class="address-box">
+            <strong>Adres:</strong><br>
+            Şehit Kurmay Yarbay İlker Çelikcan Cad. No:26C<br>
+            Çalı Mah. Nilüfer / Bursa
+        </div>
+
+        <p class="footer-text">© 2026 Aysima Elektrik</p>
+    </div>
+</div>
+
+<script>
+function downloadVCard() {
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:AYSİMA ELEKTRİK
+ORG:AYSİMA ELEKTRİK
+TEL;TYPE=CELL:+905386448601
+EMAIL:aysima.elektrik@gmail.com
+END:VCARD`;
+
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "Aysima_Elektrik.vcf";
+    a.click();
+}
+</script>
+
+</body>
+</html>
+
